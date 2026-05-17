@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+#nameerror,#emailerror,#phoneerror{
+    color: red;
+    display: none;
+}
+.head{
+   background-color: black;
+   text-align: center;
+   color: white;
+}
+
+.input{
+   font-size: large;
+      text-align: center;
+      
+
+}
+.main{
+   width: 350px;
+   margin-bottom: 15px;
+   height: 30px;
+}
+
+</style>
+</head>
+
+<body>
+    <nav>
+        <h1 class="head">contract</h1>
+            </nav>
+<div id="border">
+    <form class="input">
+        <input type="text" placeholder="NAME" id="name" class="main">
+        <span  id="nameerror">name must contains only letter </span><br>
+        <input type="text" placeholder="EMAIL" id="email"class="main">
+        <span id="emailerror">please provide valid gmail address</span><br>
+        <input type="text" placeholder="PHONE NUMBER" id="phone"class="main">
+        <span id="phoneerror">phone number must contains only 10 digits</span><br>
+        <button id="sub">submit</button>
+    </form>
+   </div>
+    </html>
+</body>
+
+<script>
+ var submit = document.getElementById("sub")
+ 
+
+ submit.addEventListener("click",function(){
+    event.preventDefault()
+
+ var name = document.getElementById("name")
+ var email = document.getElementById("email")
+ var mobile = document.getElementById("phone")
+
+ 
+ 
+
+ var nameregex = /^[a-zA-Z]+$/
+ var emailregex = /^[a-zA-Z0-9]+\@gmail.com/
+ var phoneregex =/^\d{10}$/
+  
+ var correct = true
+
+
+ if(nameregex.test(name.value) == false)
+ {
+    document.getElementById("nameerror").style.display="inline"
+    correct = false
+ }
+ else{
+      document.getElementById("nameerror").style.display="none"
+
+ }
+
+ 
+ if(emailregex.test(email.value) == false)
+ {
+    document.getElementById("emailerror").style.display="inline"
+    correct = false
+ }
+ else{
+      document.getElementById("emailerror").style.display="none"
+
+ }
+ 
+ if(phoneregex.test(mobile.value) == false)
+ {
+    document.getElementById("phoneerror").style.display="inline"
+    correct = false
+ }
+ else{
+      document.getElementById("phoneerror").style.display="none"
+ }
+
+ if(correct == true)
+ {
+    alert("form submitted successfully")
+ }
+  })
+</script>
